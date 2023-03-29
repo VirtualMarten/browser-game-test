@@ -54,7 +54,7 @@ class World(object):
     def get_forest(self, x, y):
         if self.rng.randint(0, 3) == 0:
             return 2
-        n = self.forest_noisemap.noise2d(x / 5.0, y / 5.0)
+        n = self.forest_noisemap.noise2(x / 5.0, y / 5.0)
         if n > 0.1:
             if n < 0.2:
                 return 0 if self.rng.randint(0, 2) == 0 else 5
@@ -65,7 +65,7 @@ class World(object):
         else:
             return 0
     def get_biome(self, x, y):
-        n = self.biome_noisemap.noise2d(x/ 12.0, y / 12.0) * 100
+        n = self.biome_noisemap.noise2(x/ 12.0, y / 12.0) * 100
         if n > 16:
             return 1, n
         elif n > 5 and n < 12:
